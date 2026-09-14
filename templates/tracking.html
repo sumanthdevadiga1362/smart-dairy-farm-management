@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Live Animal Tracking â€“ Smart Dairy Monitor{% endblock %}
+{% block title %}Live Animal Tracking &mdash; Smart Dairy Monitor{% endblock %}
 
 {% block content %}
 
 <!-- Page Header -->
-<div class="page-header" style="background:linear-gradient(135deg,#0a1628,#0d2040)">
+<div class="page-header">
   <div class="container-xl">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mb-2">
@@ -15,7 +15,7 @@
     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
       <div>
         <h1 class="page-title mb-1"><i class="bi bi-camera-video me-2"></i>Animal Behaviour Tracking</h1>
-        <p class="page-subtitle">Real-time AI surveillance Â· YOLOv8 Detection Â· DeepSORT Tracking Â· Behaviour Analysis</p>
+        <p class="page-subtitle">Real-time AI surveillance &middot; YOLOv8 Detection &middot; DeepSORT Tracking &middot; Behaviour Analysis</p>
       </div>
       <div class="d-flex gap-2 flex-wrap align-items-center">
         <!-- Main ON/OFF Toggle -->
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<section class="py-4" style="background:#060e1c;min-height:85vh">
+<section class="py-4" style="min-height:85vh">
   <div class="container-xl">
 
     <!-- â•â• TOP STAT CARDS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
@@ -88,11 +88,11 @@
             <span class="trk-badge-red" id="feedStatus">Stopped</span>
           </div>
           <div class="feed-wrap">
-            <!-- src is intentionally empty â€” set by JS only when tracking is ON -->
+            <!-- src is intentionally empty -- set by JS only when tracking is ON -->
             <img id="videoFeed" src="" alt="Live Feed" style="display:none"
                  onerror="onFeedError()" onload="onFeedLoaded()"/>
             <div class="feed-overlay" id="feedOverlay" style="display:flex">
-              <i class="bi bi-play-circle" style="font-size:3.5rem;color:#22d3ee"></i>
+              <i class="bi bi-play-circle" style="font-size:3.5rem;color:#16a34a"></i>
               <span style="color:#fff">Tracking is OFF</span>
               <small>Click <strong>Start Tracking</strong> to begin live analysis</small>
             </div>
@@ -113,7 +113,7 @@
                   </tr>
                 </thead>
                 <tbody id="trackTable">
-                  <tr><td colspan="6" class="text-center text-muted py-3">Waiting for detectionsâ€¦</td></tr>
+                  <tr><td colspan="6" class="text-center text-muted py-3">Waiting for detections&hellip;</td></tr>
                 </tbody>
               </table>
             </div>
@@ -180,8 +180,8 @@
               <div class="beh-ref-card" style="border-left:3px solid {{ color }}">
                 <i class="bi {{ icon }}" style="color:{{ color }};font-size:1.1rem"></i>
                 <div>
-                  <div class="fw-600 text-white" style="font-size:.85rem">{{ name }}</div>
-                  <div style="font-size:.75rem;color:#94a3b8">{{ desc }}</div>
+                  <div class="fw-600 text-dark" style="font-size:.85rem">{{ name }}</div>
+                  <div style="font-size:.75rem;color:#64748b">{{ desc }}</div>
                 </div>
               </div>
             </div>
@@ -198,9 +198,9 @@
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  TRACKING DASHBOARD â€“ JAVASCRIPT
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+//  TRACKING DASHBOARD -- JAVASCRIPT
+// â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
 
 const BEHAVIOUR_COLOURS = {
   'Resting':    '#64a6ff',
@@ -209,7 +209,7 @@ const BEHAVIOUR_COLOURS = {
   'Stress':     '#f97316',
   'Aggressive': '#ef4444',
   'Isolated':   '#a855f7',
-  'Detectingâ€¦': '#6b7280',
+  'Detecting...': '#6b7280',
 };
 
 // â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -220,7 +220,7 @@ let pollInterval = null;
 const bhCtx = document.getElementById('behaviourChart').getContext('2d');
 const behaviourChart = new Chart(bhCtx, {
   type: 'doughnut',
-  data: { labels: ['No Data'], datasets: [{ data: [1], backgroundColor: ['#1e293b'], borderWidth: 0 }] },
+  data: { labels: ['No Data'], datasets: [{ data: [1], backgroundColor: ['#e2e8f0'], borderWidth: 0 }] },
   options: {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 } } } },
@@ -238,8 +238,8 @@ const velocityChart = new Chart(velCtx, {
     datasets: [{
       label: 'Avg Velocity (px/frame)',
       data: velData,
-      borderColor: '#22d3ee',
-      backgroundColor: 'rgba(34,211,238,0.08)',
+      borderColor: '#16a34a',
+      backgroundColor: 'rgba(22,163,74,0.08)',
       fill: true, tension: 0.4, pointRadius: 0, borderWidth: 2
     }]
   },
@@ -247,15 +247,15 @@ const velocityChart = new Chart(velCtx, {
     responsive: true, maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: {
-      x: { ticks: { color: '#475569', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
-      y: { ticks: { color: '#475569', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.04)' }, min: 0 }
+      x: { ticks: { color: '#475569', font: { size: 9 } }, grid: { color: 'rgba(0,0,0,0.06)' } },
+      y: { ticks: { color: '#475569', font: { size: 9 } }, grid: { color: 'rgba(0,0,0,0.06)' }, min: 0 }
     },
     animation: false
   }
 });
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-//  MAIN TOGGLE â€” called by Start / Stop button
+//  MAIN TOGGLE -- called by Start / Stop button
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 function toggleTracking() {
   if (isTracking) {
@@ -287,7 +287,7 @@ function startTracking() {
   document.getElementById('feedOverlay').style.display = 'none';
 
   // Update status badge
-  document.getElementById('feedStatus').textContent = 'Connectingâ€¦';
+  document.getElementById('feedStatus').textContent = 'Connecting...';
   document.getElementById('feedStatus').className   = 'trk-badge-green';
 
   // Start polling stats
@@ -323,7 +323,7 @@ function stopTracking() {
   const overlay = document.getElementById('feedOverlay');
   overlay.style.display = 'flex';
   overlay.innerHTML = `
-    <i class="bi bi-play-circle" style="font-size:3.5rem;color:#22d3ee"></i>
+    <i class="bi bi-play-circle" style="font-size:3.5rem;color:#16a34a"></i>
     <span style="color:#fff">Tracking is OFF</span>
     <small>Click <strong>Start Tracking</strong> to begin live analysis</small>`;
 
@@ -396,9 +396,9 @@ function updateTrackTable(tracks) {
   }
   tbody.innerHTML = tracks.map(t => {
     const col  = BEHAVIOUR_COLOURS[t.behaviour] ?? '#6b7280';
-    const alrt = t.alert ? `<span class="badge bg-danger">âš  Alert</span>` : `<span class="badge bg-secondary">â€”</span>`;
+    const alrt = t.alert ? `<span class="badge bg-danger">&#9888; Alert</span>` : `<span class="badge bg-secondary">--</span>`;
     return `<tr>
-      <td><span class="fw-600 text-white">#${t.track_id}</span></td>
+      <td><span class="fw-600 text-dark">#${t.track_id}</span></td>
       <td class="text-muted">${t.label}</td>
       <td><span class="beh-badge" style="background:${col}20;color:${col};border:1px solid ${col}50">${t.behaviour}</span></td>
       <td class="text-muted">${(t.velocity ?? 0).toFixed(1)} px/f</td>
@@ -419,11 +419,11 @@ function updateAlerts(alerts) {
   newAlerts.forEach(a => {
     const cls  = a.level === 'CRITICAL' ? 'alert-crit' : a.level === 'WARNING' ? 'alert-warn' : 'alert-info';
     const icon = a.level === 'CRITICAL' ? 'bi-exclamation-octagon-fill' : a.level === 'WARNING' ? 'bi-exclamation-triangle-fill' : 'bi-info-circle-fill';
-    const tid  = a.track_id ? ` Â· Animal #${a.track_id}` : '';
+    const tid  = a.track_id ? ` &middot; Animal #${a.track_id}` : '';
     const ts   = new Date(a.timestamp * 1000).toLocaleTimeString();
     const el   = document.createElement('div');
     el.className = `alert-item ${cls}`;
-    el.innerHTML = `<i class="bi ${icon}"></i><div class="flex-1"><div class="alert-msg">${a.message}${tid}</div><div class="alert-ts">${ts} Â· ${a.behaviour}</div></div>`;
+    el.innerHTML = `<i class="bi ${icon}"></i><div class="flex-1"><div class="alert-msg">${a.message}${tid}</div><div class="alert-ts">${ts} &middot; ${a.behaviour}</div></div>`;
     panel.prepend(el);
   });
   while (panel.children.length > 15) panel.removeChild(panel.lastChild);
@@ -478,20 +478,20 @@ async function uploadVideo(input) {
 <!-- Assign to Profile Modal -->
 <div class="modal fade" id="assignModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0">
-        <h5 class="modal-title text-white"><i class="bi bi-person-plus me-2 text-accent"></i>Assign Track to Animal Profile</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title text-dark"><i class="bi bi-person-plus me-2 text-accent"></i>Assign Track to Animal Profile</h5>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <p class="text-muted small mb-3">Select which animal this tracked object belongs to. The current behaviour event will be saved to their profile.</p>
         <div class="mb-3">
           <label class="form-label text-muted">Animal</label>
           <select id="assignAnimalSelect" class="form-select custom-input">
-            <option value="">Loading animals…</option>
+            <option value="">Loading animals&hellip;</option>
           </select>
         </div>
-        <div id="assignTrackInfo" class="p-2 rounded" style="background:rgba(255,255,255,.04);font-size:.82rem;color:#94a3b8"></div>
+        <div id="assignTrackInfo" class="p-2 rounded" style="background:rgba(0,0,0,.04);font-size:.82rem;color:#64748b"></div>
       </div>
       <div class="modal-footer border-0">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -515,14 +515,14 @@ let _assignAnimalsLoaded = false;
 function openAssignModal(trackId, behaviour, velocity, age) {
   _assignTrack = { track_id: trackId, behaviour, velocity, age };
   document.getElementById('assignTrackInfo').innerHTML =
-    `Track <strong class="text-white">#${trackId}</strong> &nbsp;·&nbsp; Behaviour: <strong class="text-white">${behaviour}</strong> &nbsp;·&nbsp; Velocity: ${velocity.toFixed(1)} px/f`;
+    `Track <strong class="text-dark">#${trackId}</strong> &nbsp;·&nbsp; Behaviour: <strong class="text-dark">${behaviour}</strong> &nbsp;·&nbsp; Velocity: ${velocity.toFixed(1)} px/f`;
   document.getElementById('assignMsg').classList.add('d-none');
   document.getElementById('btnAssignSave').disabled = false;
 
   if (!_assignAnimalsLoaded) {
     fetch('/api/animals').then(r => r.json()).then(animals => {
       const sel = document.getElementById('assignAnimalSelect');
-      sel.innerHTML = '<option value="">Select animal…</option>';
+      sel.innerHTML = '<option value="">Select animal&hellip;</option>';
       animals.forEach(a => {
         const opt = document.createElement('option');
         opt.value = a.uid; opt.textContent = `${a.name} (${a.uid})`;

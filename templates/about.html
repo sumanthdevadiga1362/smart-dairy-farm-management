@@ -1,145 +1,323 @@
 {% extends "base.html" %}
 {% block title %}About – Smart Dairy Livestock Monitoring System{% endblock %}
 
+{% block extra_css %}
+<style>
+/* ── Page header gradient ── */
+.about-header{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 50%,#f0fdf4 100%);padding:48px 0 36px;border-bottom:1px solid var(--border)}
+
+/* ── Module cards ── */
+.about-module-card{background:#f5f7fa;border:1px solid var(--border);border-radius:16px;padding:28px;height:100%;transition:.3s}
+.about-module-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08);border-color:#16a34a40}
+.amc-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.amc-blue  {background:linear-gradient(135deg,#1e40af,#1d4ed8)}
+.amc-green {background:linear-gradient(135deg,#15803d,#16a34a)}
+.amc-purple{background:linear-gradient(135deg,#6d28d9,#7c3aed)}
+.amc-orange{background:linear-gradient(135deg,#c2410c,#ea580c)}
+.amc-num{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin-bottom:6px}
+.amc-title{font-size:1rem;font-weight:700;color:#1e293b;margin-bottom:10px}
+.amc-desc{font-size:.83rem;color:#64748b;line-height:1.7;margin-bottom:14px}
+.amc-list{list-style:none;padding:0;margin:0}
+.amc-list li{font-size:.8rem;color:#64748b;padding:4px 0;display:flex;align-items:flex-start;gap:8px}
+.amc-list li i{color:var(--accent);margin-top:2px;flex-shrink:0}
+
+/* ── Tech stack grid ── */
+.tech-chip{display:inline-flex;align-items:center;gap:7px;background:#ffffff;border:1px solid var(--border);border-radius:50px;padding:7px 14px;font-size:.8rem;font-weight:600;color:#475569;transition:.2s}
+.tech-chip:hover{border-color:#16a34a50;color:#16a34a}
+.tech-chip i{color:var(--accent);font-size:.9rem}
+
+/* ── Pipeline steps ── */
+.pipe-step{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.pipe-step:last-child{border-bottom:none}
+.pipe-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#15803d);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#000;flex-shrink:0;margin-top:1px}
+.pipe-title{font-size:.85rem;font-weight:700;color:#1e293b}
+.pipe-desc{font-size:.76rem;color:#64748b;margin-top:2px}
+
+/* ── Database schema ── */
+.schema-table th{color:#64748b;font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.schema-table td{font-size:.8rem;color:#64748b;vertical-align:middle}
+.schema-table td:first-child{color:#16a34a;font-weight:700;font-family:monospace;font-size:.85rem}
+
+/* ── Info rows ── */
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:.83rem}
+.info-row:last-child{border-bottom:none}
+.info-row span{color:#64748b}
+.info-row strong{color:#1e293b}
+
+/* ── Section divider label ── */
+.about-section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#475569;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.about-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+</style>
+{% endblock %}
+
 {% block content %}
 
-<div class="page-header">
+<!-- ═══ HEADER ══════════════════════════════════════════ -->
+<div class="about-header">
   <div class="container-xl">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+      <li class="breadcrumb-item active">About</li>
+    </ol></nav>
     <h1 class="page-title mb-1"><i class="bi bi-info-circle me-2"></i>About This System</h1>
-    <p class="page-subtitle">Project overview, technology stack, and system architecture</p>
+    <p class="page-subtitle">Architecture · modules · tech stack · dataset · developer</p>
   </div>
 </div>
 
-<section class="py-5">
+<section class="py-4" style="min-height:85vh">
   <div class="container-xl">
 
-    <!-- Project Overview -->
-    <div class="row g-4 mb-5">
-      <div class="col-lg-8">
-        <div class="result-card">
-          <h4 class="result-card-title"><i class="bi bi-file-earmark-text me-2"></i>Project Overview</h4>
-          <p>
-            The <strong>Smart Dairy Livestock Monitoring and Decision Support System</strong> is an
-            AI-powered web application designed to assist dairy farm managers and veterinarians
-            in monitoring the health of dairy animals in real time.
+    <!-- ── Overview + Tech ── -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-7">
+        <div class="trk-card h-100">
+          <div class="trk-card-header mb-3">
+            <span><i class="bi bi-file-earmark-text me-2 text-accent"></i>Project Overview</span>
+          </div>
+          <p style="color:#64748b;font-size:.88rem;line-height:1.8">
+            The <strong class="text-dark">Smart Dairy Livestock Monitoring and Decision Support System</strong>
+            is a full-stack AI-powered web application built for dairy farm management.
+            It brings together <strong class="text-dark">Machine Learning</strong>,
+            <strong class="text-dark">Computer Vision (YOLOv8 + DeepSORT)</strong>, and a modern
+            clean web interface to deliver real-time health monitoring, behaviour surveillance,
+            animal profile management, vaccination scheduling — all from one browser-based platform.
           </p>
-          <p>
-            By leveraging machine learning algorithms trained on physiological and environmental data,
-            the system can predict whether a dairy animal is healthy or at risk, and provide actionable
-            smart recommendations to improve animal welfare and farm productivity.
-          </p>
-          <p class="mb-0">
-            This system was developed as a <strong>Major Computer Science Project</strong>, demonstrating
-            the application of Artificial Intelligence in the agricultural domain (AgriTech / Precision Farming).
+          <p style="color:#64748b;font-size:.88rem;line-height:1.8;margin-bottom:0">
+            This system was developed as a <strong class="text-dark">Final Year Major Computer Science Project</strong>,
+            demonstrating the real-world application of Artificial Intelligence in the
+            <strong class="text-dark">AgriTech / Precision Farming</strong> domain.
           </p>
         </div>
       </div>
-      <div class="col-lg-4">
-        <div class="result-card h-100">
-          <h6 class="result-card-title"><i class="bi bi-layers me-2"></i>Technology Stack</h6>
-          {% set tech = [
-            ('bi-server','Backend','Python 3.x + Flask'),
-            ('bi-cpu','ML Engine','Scikit-learn'),
-            ('bi-bar-chart','Data','Pandas + NumPy'),
-            ('bi-brush','Frontend','HTML5 + Bootstrap 5'),
-            ('bi-file-earmark-code','Storage','Joblib / Pickle'),
-            ('bi-graph-up','Plots','Matplotlib + Seaborn'),
-          ] %}
-          {% for icon, label, value in tech %}
-          <div class="model-info-item {% if loop.last %}border-0{% endif %}">
-            <span><i class="bi {{ icon }} me-2 text-accent"></i>{{ label }}</span>
-            <strong>{{ value }}</strong>
+      <div class="col-lg-5">
+        <div class="trk-card h-100">
+          <div class="trk-card-header mb-3">
+            <span><i class="bi bi-layers me-2 text-accent"></i>Technology Stack</span>
           </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
-    <!-- Modules -->
-    <div class="row g-4 mb-5">
-      <div class="col-12">
-        <div class="section-header mb-4">
-          <h4 class="section-title">System Modules</h4>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon bg-gradient-blue mb-3">
-            <i class="bi bi-cpu-fill"></i>
-          </div>
-          <h5>Module 1: Health Prediction</h5>
-          <p>Uses a trained Random Forest classifier to predict livestock health status.</p>
-          <ul class="feature-list">
-            <li><i class="bi bi-check2-circle"></i> 3 algorithms compared: DT, RF, LR</li>
-            <li><i class="bi bi-check2-circle"></i> Best model auto-selected by accuracy</li>
-            <li><i class="bi bi-check2-circle"></i> Outputs: Healthy / Sick + Confidence %</li>
-            <li><i class="bi bi-check2-circle"></i> 6 physiological input features</li>
-            <li><i class="bi bi-check2-circle"></i> Target accuracy ≥ 85%</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="feature-card">
-          <div class="feature-icon bg-gradient-green mb-3">
-            <i class="bi bi-lightbulb-fill"></i>
-          </div>
-          <h5>Module 2: Smart Recommendations</h5>
-          <p>Rule-based decision support engine generating veterinary and management advice.</p>
-          <ul class="feature-list">
-            <li><i class="bi bi-check2-circle"></i> Temperature threshold alerts</li>
-            <li><i class="bi bi-check2-circle"></i> Humidity & ventilation guidance</li>
-            <li><i class="bi bi-check2-circle"></i> Nutrition & feed recommendations</li>
-            <li><i class="bi bi-check2-circle"></i> Isolation protocols for sick animals</li>
-            <li><i class="bi bi-check2-circle"></i> Dynamic, context-aware output</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dataset & Model -->
-    <div class="row g-4 mb-5">
-      <div class="col-md-6">
-        <div class="result-card">
-          <h5 class="result-card-title"><i class="bi bi-table me-2"></i>Dataset Details</h5>
-          {% set ds = [
-            ('Total Records','2,000 samples'),
-            ('Healthy Animals','1,200 records (60%)'),
-            ('Sick/At-Risk','800 records (40%)'),
-            ('Features Used','6 parameters'),
-            ('Train / Test Split','80% / 20%'),
-            ('Cross-Validation','5-fold stratified'),
-            ('Missing Values','None (cleaned)'),
-          ] %}
-          {% for label, val in ds %}
-          <div class="model-info-item {% if loop.last %}border-0{% endif %}">
-            <span>{{ label }}</span><strong>{{ val }}</strong>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="result-card">
-          <h5 class="result-card-title"><i class="bi bi-diagram-3 me-2"></i>ML Pipeline</h5>
-          <div class="pipeline-steps">
-            {% set steps = [
-              ('1','Data Generation','Realistic synthetic livestock dataset'),
-              ('2','Preprocessing','StandardScaler normalization inside pipeline'),
-              ('3','Training','3 classifiers trained and evaluated'),
-              ('4','Evaluation','Accuracy, Precision, Recall, F1, CV score'),
-              ('5','Selection','Best model selected automatically'),
-              ('6','Persistence','Saved with Joblib for fast loading'),
-              ('7','Prediction','Real-time inference on user input'),
+          <div class="d-flex flex-wrap gap-2">
+            {% set tech = [
+              ('bi-filetype-py',   'Python 3.10+'),
+              ('bi-server',        'Flask 2.x'),
+              ('bi-cpu',           'Scikit-learn'),
+              ('bi-eye',           'YOLOv8'),
+              ('bi-arrow-repeat',  'DeepSORT'),
+              ('bi-camera-video',  'OpenCV'),
+              ('bi-database',      'SQLite'),
+              ('bi-bootstrap',     'Bootstrap 5'),
+              ('bi-bar-chart-line','Chart.js'),
+              ('bi-calendar3',     'FullCalendar 6'),
+              ('bi-graph-up',      'Matplotlib'),
+              ('bi-table',         'Pandas / NumPy'),
             ] %}
-            {% for num, title, desc in steps %}
-            <div class="pipeline-step">
-              <div class="step-num">{{ num }}</div>
-              <div>
-                <div class="step-title">{{ title }}</div>
-                <div class="step-desc">{{ desc }}</div>
-              </div>
-            </div>
+            {% for icon, name in tech %}
+            <span class="tech-chip"><i class="bi {{ icon }}"></i>{{ name }}</span>
             {% endfor %}
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ SYSTEM MODULES ══════════════════════════════ -->
+    <div class="about-section-label"><i class="bi bi-grid-3x3-gap me-2"></i>System Modules</div>
+    <div class="row g-3 mb-4">
+
+      <!-- Module 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="about-module-card">
+          <div class="amc-icon amc-blue"><i class="bi bi-cpu-fill text-white"></i></div>
+          <div class="amc-num">Module 01</div>
+          <div class="amc-title">Livestock Health Prediction</div>
+          <div class="amc-desc">ML classification engine predicting Healthy or Sick/At Risk from 6 physiological parameters.</div>
+          <ul class="amc-list">
+            <li><i class="bi bi-check2-circle"></i>Random Forest, Decision Tree, Logistic Regression</li>
+            <li><i class="bi bi-check2-circle"></i>Best model auto-selected by accuracy</li>
+            <li><i class="bi bi-check2-circle"></i>Confidence %, risk level, recommendations</li>
+            <li><i class="bi bi-check2-circle"></i>Save results to animal profile</li>
+            <li><i class="bi bi-check2-circle"></i>Confusion matrix + feature importance</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="about-module-card">
+          <div class="amc-icon amc-green"><i class="bi bi-camera-video-fill text-white"></i></div>
+          <div class="amc-num">Module 02</div>
+          <div class="amc-title">Animal Behaviour Tracking</div>
+          <div class="amc-desc">Real-time AI surveillance with YOLOv8 detection and DeepSORT multi-object tracking.</div>
+          <ul class="amc-list">
+            <li><i class="bi bi-check2-circle"></i>Webcam + video upload support</li>
+            <li><i class="bi bi-check2-circle"></i>6 behaviours: Resting, Feeding, Walking, Stress, Aggressive, Isolated</li>
+            <li><i class="bi bi-check2-circle"></i>WARNING / CRITICAL alert engine</li>
+            <li><i class="bi bi-check2-circle"></i>Live Chart.js behaviour + velocity charts</li>
+            <li><i class="bi bi-check2-circle"></i>Manual Start / Stop toggle</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="about-module-card">
+          <div class="amc-icon amc-purple"><i class="bi bi-journal-medical text-white"></i></div>
+          <div class="amc-num">Module 03</div>
+          <div class="amc-title">Animal Profile Manager</div>
+          <div class="amc-desc">Full CRUD system for managing individual animal records with unique IDs and linked history.</div>
+          <ul class="amc-list">
+            <li><i class="bi bi-check2-circle"></i>Auto UID: SDMS-YYYY-NNNN</li>
+            <li><i class="bi bi-check2-circle"></i>Health check history per animal</li>
+            <li><i class="bi bi-check2-circle"></i>Weight trend chart (Chart.js)</li>
+            <li><i class="bi bi-check2-circle"></i>Behaviour log from live tracking</li>
+            <li><i class="bi bi-check2-circle"></i>Vaccination & treatment panels</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="about-module-card">
+          <div class="amc-icon amc-orange"><i class="bi bi-calendar2-heart text-white"></i></div>
+          <div class="amc-num">Module 04</div>
+          <div class="amc-title">Vaccination & Treatment Scheduler</div>
+          <div class="amc-desc">Full scheduling system for vaccinations and treatments with FullCalendar and overdue alerts.</div>
+          <ul class="amc-list">
+            <li><i class="bi bi-check2-circle"></i>FullCalendar interactive view</li>
+            <li><i class="bi bi-check2-circle"></i>Auto overdue detection</li>
+            <li><i class="bi bi-check2-circle"></i>Mark Done with vet & date</li>
+            <li><i class="bi bi-check2-circle"></i>Treatment cost & dosage tracking</li>
+            <li><i class="bi bi-check2-circle"></i>Linked to animal profiles</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ DATASET + PIPELINE + DB ═════════════════════ -->
+    <div class="row g-4 mb-4">
+
+      <!-- Dataset -->
+      <div class="col-md-4">
+        <div class="trk-card h-100">
+          <div class="trk-card-header mb-3">
+            <span><i class="bi bi-table me-2 text-accent"></i>Dataset Details</span>
+          </div>
+          {% set ds = [
+            ('Total Records',   '2,000 samples'),
+            ('Healthy',         '1,200 (60%)'),
+            ('Sick / At-Risk',  '800 (40%)'),
+            ('Features',        '6 parameters'),
+            ('Train / Test',    '80% / 20%'),
+            ('Cross-Validation','5-fold stratified'),
+            ('Missing Values',  'None — cleaned'),
+          ] %}
+          {% for label, val in ds %}
+          <div class="info-row"><span>{{ label }}</span><strong>{{ val }}</strong></div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- ML Pipeline -->
+      <div class="col-md-4">
+        <div class="trk-card h-100">
+          <div class="trk-card-header mb-3">
+            <span><i class="bi bi-diagram-3 me-2 text-accent"></i>ML Pipeline</span>
+          </div>
+          {% set steps = [
+            ('Data Generation',  'Realistic synthetic livestock dataset'),
+            ('Preprocessing',    'StandardScaler normalisation in pipeline'),
+            ('Training',         '3 classifiers trained and evaluated'),
+            ('Evaluation',       'Accuracy, Precision, Recall, F1, CV'),
+            ('Selection',        'Best model selected automatically'),
+            ('Persistence',      'Saved with Joblib for fast loading'),
+            ('Prediction',       'Real-time inference on user input'),
+          ] %}
+          {% for title, desc in steps %}
+          <div class="pipe-step">
+            <div class="pipe-num">{{ loop.index }}</div>
+            <div><div class="pipe-title">{{ title }}</div><div class="pipe-desc">{{ desc }}</div></div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Database Schema -->
+      <div class="col-md-4">
+        <div class="trk-card h-100">
+          <div class="trk-card-header mb-3">
+            <span><i class="bi bi-database me-2 text-accent"></i>Database Schema</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table trk-table schema-table mb-0">
+              <thead><tr><th>Table</th><th>Purpose</th></tr></thead>
+              <tbody>
+              {% set tables = [
+                ('animals',               'Animal profiles & metadata'),
+                ('health_records',        'ML prediction history'),
+                ('behaviour_logs',        'Live tracking events'),
+                ('vaccination_schedules', 'Vaccine scheduling'),
+                ('treatments',            'Medicine & vet logs'),
+              ] %}
+              {% for tbl, desc in tables %}
+              <tr><td>{{ tbl }}</td><td>{{ desc }}</td></tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-3 pt-3" style="border-top:1px solid var(--border)">
+            <div class="info-row"><span>Database</span><strong>SQLite (built-in)</strong></div>
+            <div class="info-row"><span>ORM</span><strong>Raw sqlite3 CRUD</strong></div>
+            <div class="info-row" style="border:none"><span>Auto-init</span><strong>On first run</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ INPUT FEATURES ══════════════════════════════ -->
+    <div class="about-section-label"><i class="bi bi-sliders me-2"></i>Health Prediction — Input Features</div>
+    <div class="row g-3 mb-4">
+      {% set params = [
+        ('bi-thermometer-half','Body Temperature','38.0 – 39.0 °C','Normal cattle temp range','#16a34a'),
+        ('bi-droplet-half',    'Humidity',        '40 – 75 %',     'Optimal barn humidity',   '#60a5fa'),
+        ('bi-cup-hot-fill',    'Milk Yield',      '≥ 15 L / day',  'Healthy production rate', '#4ade80'),
+        ('bi-bar-chart-fill',  'Body Weight',     '≥ 420 kg',      'Minimum healthy weight',  '#fb923c'),
+        ('bi-heart-pulse-fill','Heart Rate',      '55 – 80 bpm',   'Normal cardiac range',    '#f87171'),
+        ('bi-person-walking',  'Activity Level',  '≥ 50 %',        'Active movement score',   '#a78bfa'),
+      ] %}
+      {% for icon, name, normal, desc, col in params %}
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="trk-card text-center" style="padding:18px 12px">
+          <i class="bi {{ icon }}" style="font-size:1.6rem;color:{{ col }}"></i>
+          <div class="fw-700 text-dark mt-2" style="font-size:.82rem">{{ name }}</div>
+          <div style="font-size:.72rem;color:{{ col }};font-weight:600;margin:4px 0">{{ normal }}</div>
+          <div class="text-muted" style="font-size:.7rem">{{ desc }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- ══ DEVELOPER ═══════════════════════════════════ -->
+    <div class="about-section-label"><i class="bi bi-person-badge me-2"></i>Developer</div>
+    <div class="trk-card">
+      <div class="row align-items-center g-4">
+        <div class="col-md-1 text-center">
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#15803d);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:auto">👨‍💻</div>
+        </div>
+        <div class="col-md-7">
+          <div class="fw-800 text-dark" style="font-size:1.1rem">Pratheek Achar</div>
+          <div class="text-muted" style="font-size:.83rem;margin-top:4px">Final Year Computer Science — Major Project</div>
+          <div class="text-muted" style="font-size:.8rem;margin-top:6px;line-height:1.6">
+            Built with Python · Flask · Scikit-learn · YOLOv8 · DeepSORT · SQLite · Bootstrap 5
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="https://github.com/Pratheek-achar/Smart-Dairy-Management-System"
+             target="_blank" class="btn btn-outline-info fw-600">
+            <i class="bi bi-github me-2"></i>View on GitHub
+          </a>
+          <a href="{{ url_for('predict') }}" class="btn btn-hero-primary ms-2 mt-2 mt-md-0">
+            <i class="bi bi-lightning-fill me-2"></i>Try it Now
+          </a>
         </div>
       </div>
     </div>

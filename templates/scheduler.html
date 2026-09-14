@@ -4,31 +4,31 @@
 {% block extra_css %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css">
 <style>
-input,select,textarea{color:#e2e8f0!important;background-color:#0d1b2e!important;color-scheme:dark!important}
+input,select,textarea{color:#1e293b!important;background-color:#ffffff!important;color-scheme:light!important}
 input::placeholder,textarea::placeholder{color:#475569!important}
-select option{background:#0d1b2e!important;color:#e2e8f0!important}
-.form-label{color:#cbd5e1!important;font-size:.83rem!important;font-weight:600!important}
+select option{background:#ffffff!important;color:#1e293b!important}
+.form-label{color:#475569!important;font-size:.83rem!important;font-weight:600!important}
 
 /* ── FullCalendar skin ── */
-.fc{color:#e2e8f0;font-family:'Inter',sans-serif}
-.fc-theme-standard td,.fc-theme-standard th,.fc-theme-standard .fc-scrollgrid{border-color:#1e3a5f!important}
-.fc .fc-toolbar-title{font-size:1.1rem;font-weight:700;color:#e2e8f0}
-.fc .fc-button-primary{background:#0d2040!important;border-color:#1e3a5f!important;color:#94a3b8!important;font-size:.8rem!important}
-.fc .fc-button-primary:hover{background:#1e3a5f!important;color:#fff!important}
-.fc .fc-button-primary.fc-button-active{background:var(--accent)!important;border-color:var(--accent)!important;color:#000!important}
-.fc-day-today{background:rgba(34,211,238,.05)!important}
-.fc-daygrid-day-number,.fc-col-header-cell-cushion{color:#94a3b8!important;text-decoration:none!important}
+.fc{color:#1e293b;font-family:'Inter',sans-serif}
+.fc-theme-standard td,.fc-theme-standard th,.fc-theme-standard .fc-scrollgrid{border-color:var(--border)!important}
+.fc .fc-toolbar-title{font-size:1.1rem;font-weight:700;color:#1e293b}
+.fc .fc-button-primary{background:#ffffff!important;border-color:var(--border)!important;color:#94a3b8!important;font-size:.8rem!important}
+.fc .fc-button-primary:hover{background:#f1f5f9!important;color:#1e293b!important}
+.fc .fc-button-primary.fc-button-active{background:var(--accent)!important;border-color:var(--accent)!important;color:#fff!important}
+.fc-day-today{background:rgba(22,163,74,.05)!important}
+.fc-daygrid-day-number,.fc-col-header-cell-cushion{color:#475569!important;text-decoration:none!important}
 .fc-event{border-radius:5px!important;font-size:.72rem!important;padding:2px 5px!important;border:none!important;font-weight:600}
-.fc-popover{background:#0d1b2e!important;border:1px solid #1e3a5f!important}
-.fc-popover-title{color:#e2e8f0!important}
+.fc-popover{background:#ffffff!important;border:1px solid var(--border)!important}
+.fc-popover-title{color:#1e293b!important}
 
 /* ── Scheduler cards ── */
-.sched-card{background:#0b1626;border:1px solid #1e3a5f;border-radius:12px;padding:18px 20px;position:relative;transition:.2s}
-.sched-card:hover{border-color:#22d3ee40;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.sched-card{background:#f5f7fa;border:1px solid var(--border);border-radius:12px;padding:18px 20px;position:relative;transition:.2s}
+.sched-card:hover{border-color:#16a34a40;box-shadow:0 4px 20px rgba(0,0,0,.08)}
 .sched-status-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase}
 .pill-pending  {background:rgba(34,197,94,.15);color:#4ade80;border:1px solid rgba(34,197,94,.3)}
 .pill-overdue  {background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3)}
-.pill-completed{background:rgba(100,116,139,.2);color:#94a3b8;border:1px solid rgba(100,116,139,.3)}
+.pill-completed{background:rgba(100,116,139,.2);color:#64748b;border:1px solid rgba(100,116,139,.3)}
 .pill-skipped  {background:rgba(249,115,22,.15);color:#fb923c;border:1px solid rgba(249,115,22,.3)}
 .pill-active   {background:rgba(96,165,250,.15);color:#93c5fd;border:1px solid rgba(96,165,250,.3)}
 .pill-cancelled{background:rgba(107,114,128,.15);color:#9ca3af;border:1px solid rgba(107,114,128,.3)}
@@ -39,13 +39,13 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
 
 /* tab pills */
 .sched-tabs .nav-link{background:transparent;color:#64748b;border:1px solid transparent;border-radius:8px;font-size:.85rem;font-weight:600;padding:6px 16px}
-.sched-tabs .nav-link.active{background:#0d2040;color:#22d3ee;border-color:#1e3a5f}
+.sched-tabs .nav-link.active{background:#0d2040;color:#16a34a;border-color:var(--border)}
 .sched-tabs .nav-link:hover{color:#94a3b8}
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header" style="background:linear-gradient(135deg,#0d1a0a,#1a2d0f)">
+<div class="page-header" >
   <div class="container-xl">
     <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
       <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
@@ -68,7 +68,7 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
   </div>
 </div>
 
-<section class="py-4" style="background:#060e1c;min-height:85vh">
+<section class="py-4" style="min-height:85vh">
   <div class="container-xl">
 
     <!-- ── Stat row ── -->
@@ -145,7 +145,7 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
                 <div class="sched-icon icon-vax">💉</div>
                 <div class="flex-grow-1 min-w-0">
                   <div class="d-flex align-items-center justify-content-between mb-1 flex-wrap gap-1">
-                    <span class="fw-700 text-white" style="font-size:.92rem">{{ v.vaccine_name }}</span>
+                    <span class="fw-700 text-dark" style="font-size:.92rem">{{ v.vaccine_name }}</span>
                     <span class="sched-status-pill pill-{{ v.status|lower }}">{{ v.status }}</span>
                   </div>
                   <div class="text-accent small fw-600 mb-1">
@@ -153,35 +153,35 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
                       <i class="bi bi-tag me-1"></i>{{ v.animal_name }}
                     </a>
                   </div>
-                  <div class="text-muted" style="font-size:.78rem">
-                    <i class="bi bi-calendar-event me-1"></i>Due: <strong class="text-white">{{ v.scheduled_date }}</strong>
-                    &nbsp;·&nbsp; Dose #{{ v.dose_number }}
+                  <div style="font-size:.78rem;color:#64748b">
+                    <i class="bi bi-calendar-event me-1" style="color:#16a34a"></i>Due: <strong style="color:#1e293b">{{ v.scheduled_date }}</strong>
+                    &nbsp;·&nbsp; Dose #<strong style="color:#1e293b">{{ v.dose_number }}</strong>
                   </div>
                   {% if v.next_due_date %}
-                  <div class="text-muted mt-1" style="font-size:.76rem">
-                    <i class="bi bi-arrow-repeat me-1"></i>Next due: {{ v.next_due_date }}
+                  <div style="font-size:.76rem;color:#64748b;margin-top:4px">
+                    <i class="bi bi-arrow-repeat me-1" style="color:#4ade80"></i>Next due: <span style="color:#475569">{{ v.next_due_date }}</span>
                   </div>
                   {% endif %}
                   {% if v.administered_by %}
-                  <div class="text-muted mt-1" style="font-size:.76rem">
-                    <i class="bi bi-person-badge me-1"></i>By: {{ v.administered_by }}
+                  <div style="font-size:.76rem;color:#64748b;margin-top:4px">
+                    <i class="bi bi-person-badge me-1" style="color:#a78bfa"></i>By: <span style="color:#475569">{{ v.administered_by }}</span>
                   </div>
                   {% endif %}
                   {% if v.notes %}
-                  <div class="text-muted mt-1" style="font-size:.75rem;font-style:italic">{{ v.notes }}</div>
+                  <div style="font-size:.75rem;color:#64748b;font-style:italic;margin-top:4px">{{ v.notes }}</div>
                   {% endif %}
                 </div>
               </div>
-              <div class="d-flex gap-2 mt-3 pt-2" style="border-top:1px solid #1e3a5f">
+              <div class="d-flex gap-2 mt-3 pt-2" style="border-top:1px solid var(--border)">
                 {% if v.status in ['Pending','Overdue'] %}
                 <button class="btn btn-xs btn-success flex-grow-1"
                         onclick="markDone({{ v.id }}, '{{ v.vaccine_name }}')">
                   <i class="bi bi-check2-circle me-1"></i>Mark Done
                 </button>
                 {% endif %}
-                <button class="btn btn-xs btn-outline-secondary"
-                        onclick="editVax({{ v | tojson | e }})">
-                  <i class="bi bi-pencil"></i>
+<button class="btn btn-xs btn-outline-info"
+                        onclick='editVax({{ v | tojson }})'>
+                  <i class="bi bi-pencil"></i> Edit
                 </button>
                 <form method="POST" action="{{ url_for('vax_delete', vax_id=v.id) }}" style="margin:0">
                   <button type="submit" class="btn btn-xs btn-outline-danger"
@@ -214,7 +214,7 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
                 <div class="sched-icon icon-treat">💊</div>
                 <div class="flex-grow-1 min-w-0">
                   <div class="d-flex align-items-center justify-content-between mb-1 flex-wrap gap-1">
-                    <span class="fw-700 text-white" style="font-size:.92rem">{{ t.treatment_type }}</span>
+                    <span class="fw-700 text-dark" style="font-size:.92rem">{{ t.treatment_type }}</span>
                     <span class="sched-status-pill pill-{{ t.status|lower }}">{{ t.status }}</span>
                   </div>
                   <div class="text-accent small fw-600 mb-1">
@@ -223,33 +223,33 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
                     </a>
                   </div>
                   {% if t.medicine_name %}
-                  <div class="text-white" style="font-size:.82rem">
-                    <i class="bi bi-capsule me-1 text-info"></i>{{ t.medicine_name }}
-                    {% if t.dosage %}<span class="text-muted ms-1">({{ t.dosage }})</span>{% endif %}
+                  <div style="font-size:.82rem;color:#475569;margin-top:4px">
+                    <i class="bi bi-capsule me-1" style="color:#67e8f9"></i><strong>{{ t.medicine_name }}</strong>
+                    {% if t.dosage %}<span style="color:#64748b;margin-left:4px">({{ t.dosage }})</span>{% endif %}
                   </div>
                   {% endif %}
-                  <div class="text-muted mt-1" style="font-size:.78rem">
-                    <i class="bi bi-calendar-event me-1"></i>Start: <strong class="text-white">{{ t.start_date }}</strong>
-                    {% if t.end_date %}&nbsp;→ End: {{ t.end_date }}{% endif %}
+                  <div style="font-size:.78rem;color:#64748b;margin-top:4px">
+                    <i class="bi bi-calendar-event me-1" style="color:#16a34a"></i>Start: <strong style="color:#1e293b">{{ t.start_date }}</strong>
+                    {% if t.end_date %}<span style="color:#64748b"> → End: <span style="color:#475569">{{ t.end_date }}</span></span>{% endif %}
                   </div>
                   {% if t.vet_name %}
-                  <div class="text-muted mt-1" style="font-size:.76rem">
-                    <i class="bi bi-person-badge me-1"></i>Vet: {{ t.vet_name }}
+                  <div style="font-size:.76rem;color:#64748b;margin-top:4px">
+                    <i class="bi bi-person-badge me-1" style="color:#a78bfa"></i>Vet: <span style="color:#475569">{{ t.vet_name }}</span>
                   </div>
                   {% endif %}
                   {% if t.cost %}
-                  <div class="text-muted mt-1" style="font-size:.76rem">
-                    <i class="bi bi-currency-rupee me-1"></i>Cost: ₹{{ '%.2f'|format(t.cost) }}
+                  <div style="font-size:.76rem;color:#64748b;margin-top:4px">
+                    <i class="bi bi-currency-rupee me-1" style="color:#4ade80"></i>Cost: <span style="color:#4ade80;font-weight:700">₹{{ '%.2f'|format(t.cost) }}</span>
                   </div>
                   {% endif %}
                   {% if t.notes %}
-                  <div class="text-muted mt-1" style="font-size:.75rem;font-style:italic">{{ t.notes }}</div>
+                  <div style="font-size:.75rem;color:#64748b;font-style:italic;margin-top:4px">{{ t.notes }}</div>
                   {% endif %}
                 </div>
               </div>
-              <div class="d-flex gap-2 mt-3 pt-2" style="border-top:1px solid #1e3a5f">
-                <button class="btn btn-xs btn-outline-secondary flex-grow-1"
-                        onclick="editTreat({{ t | tojson | e }})">
+              <div class="d-flex gap-2 mt-3 pt-2" style="border-top:1px solid var(--border)">
+<button class="btn btn-xs btn-outline-info flex-grow-1"
+                        onclick='editTreat({{ t | tojson }})'>
                   <i class="bi bi-pencil me-1"></i>Edit
                 </button>
                 <form method="POST" action="{{ url_for('treatment_delete', treat_id=t.id) }}" style="margin:0">
@@ -279,10 +279,10 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
 <!-- ════ Add Vaccination Modal ════ -->
 <div class="modal fade" id="vaxModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0">
-        <h5 class="modal-title text-white"><i class="bi bi-syringe me-2 text-success"></i><span id="vaxModalTitle">Schedule Vaccination</span></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title text-dark"><i class="bi bi-syringe me-2 text-success"></i><span id="vaxModalTitle">Schedule Vaccination</span></h5>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form id="vaxForm" method="POST" action="{{ url_for('vax_add') }}">
         <input type="hidden" name="vax_id" id="vaxId">
@@ -350,10 +350,10 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
 <!-- ════ Add Treatment Modal ════ -->
 <div class="modal fade" id="treatModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0">
-        <h5 class="modal-title text-white"><i class="bi bi-capsule me-2 text-info"></i><span id="treatModalTitle">Log Treatment</span></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title text-dark"><i class="bi bi-capsule me-2 text-info"></i><span id="treatModalTitle">Log Treatment</span></h5>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form id="treatForm" method="POST" action="{{ url_for('treatment_add') }}">
         <input type="hidden" name="treat_id" id="treatId">
@@ -436,14 +436,14 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
 <!-- ════ Mark Done Modal ════ -->
 <div class="modal fade" id="doneModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0">
-        <h5 class="modal-title text-white"><i class="bi bi-check-circle me-2 text-success"></i>Mark Vaccination Done</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title text-dark"><i class="bi bi-check-circle me-2 text-success"></i>Mark Vaccination Done</h5>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
       <form method="POST" id="doneForm" action="">
         <div class="modal-body">
-          <p class="text-muted mb-3">Confirm that <strong id="doneVaxName" class="text-white"></strong> has been administered.</p>
+          <p class="text-muted mb-3">Confirm that <strong id="doneVaxName" class="text-dark"></strong> has been administered.</p>
           <div class="mb-3">
             <label class="form-label">Date Administered</label>
             <input type="date" name="administered_date" id="doneDate" class="form-control custom-input" required>
@@ -465,10 +465,10 @@ select option{background:#0d1b2e!important;color:#e2e8f0!important}
 <!-- ════ Event Detail Popover ════ -->
 <div class="modal fade" id="eventModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0 pb-1">
-        <h6 class="modal-title text-white" id="evTitle"></h6>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <h6 class="modal-title text-dark" id="evTitle"></h6>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body pt-1" id="evBody"></div>
       <div class="modal-footer border-0 pt-0" id="evFooter"></div>

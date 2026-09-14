@@ -2,7 +2,7 @@
 {% block title %}Animal Profiles – Smart Dairy Monitor{% endblock %}
 
 {% block content %}
-<div class="page-header" style="background:linear-gradient(135deg,#0a1a0f,#0d2d1a)">
+<div class="page-header">
   <div class="container-xl">
     <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
       <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<section class="py-4" style="background:#060e1c;min-height:85vh">
+<section class="py-4" style="min-height:85vh">
   <div class="container-xl">
 
     <!-- Stat row -->
@@ -156,12 +156,12 @@
 <!-- Delete confirm modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background:#0d1b2e;border:1px solid #1e3a5f">
+    <div class="modal-content" style="background:#ffffff;border:1px solid var(--border)">
       <div class="modal-header border-0">
         <h5 class="modal-title text-danger"><i class="bi bi-trash3 me-2"></i>Delete Animal</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body text-white">
+      <div class="modal-body">
         Are you sure you want to permanently delete <strong id="deleteAnimalName"></strong>?
         <br><small class="text-muted mt-1 d-block">All health records and behaviour logs will also be deleted.</small>
       </div>

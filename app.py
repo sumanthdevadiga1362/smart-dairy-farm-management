@@ -27,7 +27,7 @@ FEATURES   = model_data['features']
 MODEL_NAME = model_data['best_name']
 ALL_RESULTS = model_data.get('all_results', {})
 
-print(f"✅  Model loaded: {MODEL_NAME}  (accuracy={model_data['accuracy']*100:.1f}%)")
+print(f"[OK] Model loaded: {MODEL_NAME}  (accuracy={model_data['accuracy']*100:.1f}%)")
 
 # Initialise SQLite database
 db.init_db()
@@ -655,9 +655,11 @@ def treatment_delete(treat_id):
     return redirect(url_for('scheduler') + '#tabTreat')
 
 
+
 # ─────────────────────────────────────────────
 # Entry Point
 # ─────────────────────────────────────────────
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000, threaded=True)
-
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port, threaded=True)

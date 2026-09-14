@@ -4,53 +4,53 @@
 {% block extra_css %}
 <style>
 /* ── Hero ── */
-.dash-hero{background:linear-gradient(135deg,#020b18 0%,#061220 40%,#091a10 100%);padding:52px 0 40px;border-bottom:1px solid #1e3a5f}
-.hero-badge{display:inline-flex;align-items:center;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.4px;margin-bottom:18px}
-.hero-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;color:#f1f5f9;margin-bottom:14px}
-.text-gradient{background:linear-gradient(135deg,#22d3ee,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.dash-hero{background:linear-gradient(135deg,#f0fdf4 0%,#e8f5e9 50%,#f0fdf4 100%);padding:52px 0 40px;border-bottom:1px solid var(--border)}
+.hero-badge{display:inline-flex;align-items:center;background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.25);color:var(--accent);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.4px;margin-bottom:18px}
+.hero-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;color:#1e293b;margin-bottom:14px}
+.text-gradient{background:linear-gradient(135deg,#16a34a,#15803d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-desc{color:#64748b;font-size:1rem;max-width:480px;line-height:1.7}
 
 /* ── Live KPI row ── */
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:28px 0}
-.kpi-card{background:#0b1626;border:1px solid #1e3a5f;border-radius:14px;padding:20px 18px;text-align:center;transition:.25s;position:relative;overflow:hidden}
-.kpi-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.015));pointer-events:none}
-.kpi-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.4);border-color:#22d3ee40}
+.kpi-card{background:#f5f7fa;border:1px solid var(--border);border-radius:14px;padding:20px 18px;text-align:center;transition:.25s;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(0,0,0,.015));pointer-events:none}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.08);border-color:#16a34a40}
 .kpi-icon{font-size:1.6rem;margin-bottom:6px;display:block}
-.kpi-val{font-size:2rem;font-weight:800;color:#f1f5f9;line-height:1}
+.kpi-val{font-size:2rem;font-weight:800;color:#1e293b;line-height:1}
 .kpi-label{font-size:.72rem;color:#64748b;margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.4px}
 .kpi-green .kpi-icon{color:#4ade80}
 .kpi-blue  .kpi-icon{color:#60a5fa}
 .kpi-yellow.kpi-icon,.kpi-yellow .kpi-icon{color:#fbbf24}
 .kpi-red   .kpi-icon{color:#f87171}
-.kpi-cyan  .kpi-icon{color:#22d3ee}
+.kpi-cyan  .kpi-icon{color:#16a34a}
 .kpi-purple.kpi-icon,.kpi-purple .kpi-icon{color:#a78bfa}
 
 /* ── Section labels ── */
 .dash-section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#475569;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.dash-section-label::after{content:'';flex:1;height:1px;background:#1e3a5f}
+.dash-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* ── Module cards ── */
-.module-card{background:#0b1626;border:1px solid #1e3a5f;border-radius:16px;padding:24px;transition:.3s;position:relative;overflow:hidden;height:100%}
-.module-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.45);border-color:#22d3ee40}
+.module-card{background:#f5f7fa;border:1px solid var(--border);border-radius:16px;padding:24px;transition:.3s;position:relative;overflow:hidden;height:100%}
+.module-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.1);border-color:#16a34a40}
 .module-card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px}
 .mc-blue  {background:linear-gradient(135deg,#1e40af,#1d4ed8)}
 .mc-green {background:linear-gradient(135deg,#15803d,#16a34a)}
 .mc-purple{background:linear-gradient(135deg,#6d28d9,#7c3aed)}
 .mc-orange{background:linear-gradient(135deg,#c2410c,#ea580c)}
-.module-card h5{font-size:.95rem;font-weight:700;color:#f1f5f9;margin-bottom:8px}
+.module-card h5\{font-size:.95rem;font-weight:700;color:#1e293b;margin-bottom:8px}
 .module-card p{font-size:.8rem;color:#64748b;line-height:1.6;margin-bottom:16px}
 .module-pill{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:50px;margin-bottom:4px}
 
 /* ── Activity list ── */
-.activity-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #0f2040}
+.activity-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
 .activity-item:last-child{border-bottom:none}
 .activity-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.activity-text{font-size:.82rem;color:#94a3b8;flex:1;min-width:0}
-.activity-text strong{color:#e2e8f0}
+.activity-text{font-size:.82rem;color:#64748b;flex:1;min-width:0}
+.activity-text strong{color:#1e293b}
 .activity-time{font-size:.72rem;color:#475569;white-space:nowrap}
 
 /* ── Upcoming vax list ── */
-.vax-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #0f2040}
+.vax-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}
 .vax-item:last-child{border-bottom:none}
 .vax-date{font-size:.72rem;font-weight:700;color:#fbbf24;min-width:72px}
 .vax-overdue{color:#f87171}
@@ -59,12 +59,12 @@
 .ml-bar-wrap{margin-top:4px}
 .ml-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:.78rem}
 .ml-bar-label{color:#64748b;width:72px;flex-shrink:0}
-.ml-bar-track{flex:1;height:6px;background:#1e3a5f;border-radius:50px;overflow:hidden}
+.ml-bar-track{flex:1;height:6px;background:#e2e8f0;border-radius:50px;overflow:hidden}
 .ml-bar-fill{height:100%;border-radius:50px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
 
 /* ── CTA ── */
-.cta-banner{background:linear-gradient(135deg,#0f2d1a,#0a1f3d);border:1px solid #1e3a5f;border-radius:18px;padding:36px 32px;text-align:center}
-.cta-banner h3{font-size:1.5rem;font-weight:800;color:#f1f5f9;margin-bottom:8px}
+.cta-banner{background:linear-gradient(135deg,rgba(22,163,74,.06),rgba(21,128,61,.08));border:1px solid var(--border);border-radius:18px;padding:36px 32px;text-align:center}
+.cta-banner h3{font-size:1.5rem;font-weight:800;color:#1e293b;margin-bottom:8px}
 .cta-banner p{color:#64748b;margin-bottom:24px}
 </style>
 {% endblock %}
@@ -128,7 +128,7 @@
 </section>
 
 <!-- ═══ MAIN CONTENT ══════════════════════════════ -->
-<section class="py-4" style="background:#060e1c">
+<section class="py-4" >
   <div class="container-xl">
 
     <div class="row g-4">
@@ -184,7 +184,7 @@
                 <span class="module-pill" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">
                   <i class="bi bi-database"></i> SQLite
                 </span>
-                <span class="module-pill ms-1" style="background:rgba(34,211,238,.1);color:#22d3ee;border:1px solid rgba(34,211,238,.2)">
+                <span class="module-pill ms-1" style="background:rgba(22,163,74,.1);color:#16a34a;border:1px solid rgba(22,163,74,.2)">
                   <i class="bi bi-person-badge"></i> {{ db.total }} Animals
                 </span>
               </div>
@@ -221,15 +221,15 @@
           <div class="row g-3 align-items-center">
             <div class="col-md-5">
               <div class="d-flex align-items-center gap-3 mb-3">
-                <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#22d3ee,#6366f1);display:flex;align-items:center;justify-content:center;font-size:1.4rem">🏆</div>
+                <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#16a34a,#15803d);display:flex;align-items:center;justify-content:center;font-size:1.4rem">🏆</div>
                 <div>
                   <div class="text-muted small">Best Algorithm</div>
-                  <div class="fw-700 text-white" style="font-size:1rem">{{ stats.model_name }}</div>
+                  <div class="fw-700 text-dark" style="font-size:1rem">{{ stats.model_name }}</div>
                 </div>
               </div>
               <div class="ml-bar-wrap">
                 {% for label, val, col in [
-                  ('Accuracy',  stats.accuracy,  '#22d3ee'),
+                  ('Accuracy',  stats.accuracy,  '#16a34a'),
                   ('Precision', stats.precision, '#4ade80'),
                   ('Recall',    stats.recall,    '#fb923c'),
                   ('F1 Score',  stats.f1,        '#a78bfa'),
@@ -247,16 +247,16 @@
             <div class="col-md-7">
               <div class="table-responsive">
                 <table class="table trk-table mb-0" style="font-size:.78rem">
-                  <thead><tr><th>Algorithm</th><th>Accuracy</th><th>F1</th><th></th></tr></thead>
+                  <thead><tr><th style="color:#64748b">Algorithm</th><th style="color:#64748b">Accuracy</th><th style="color:#64748b">F1</th><th></th></tr></thead>
                   <tbody>
                   {% for name, m in stats.all_results.items() %}
                   <tr>
-                    <td class="text-white fw-600">{{ name }}</td>
-                    <td class="text-white">{{ m.accuracy }}%</td>
-                    <td class="text-muted">{{ m.f1 }}%</td>
+                    <td style="color:#1e293b;font-weight:600">{{ name }}</td>
+                    <td style="color:#475569">{{ m.accuracy }}%</td>
+                    <td style="color:#475569">{{ m.f1 }}%</td>
                     <td>
                       {% if name == stats.model_name %}
-                      <span class="badge bg-success">✓ Best</span>
+                      <span class="badge bg-success">&check; Best</span>
                       {% endif %}
                     </td>
                   </tr>
@@ -333,7 +333,7 @@
               {% if v.status == 'Overdue' %}<br><span style="font-size:.65rem">OVERDUE</span>{% endif %}
             </span>
             <div class="flex-grow-1 min-w-0">
-              <div class="text-white fw-600" style="font-size:.82rem">{{ v.vaccine_name }}</div>
+              <div class="text-dark fw-600" style="font-size:.82rem">{{ v.vaccine_name }}</div>
               <div class="text-muted" style="font-size:.74rem">{{ v.animal_name }}</div>
             </div>
           </div>
