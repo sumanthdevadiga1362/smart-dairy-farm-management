@@ -40,5 +40,9 @@ Thumbs.db
 # Logs
 *.log
 
+# Uploads
+static/uploads/*
+!static/uploads/.gitkeep
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
